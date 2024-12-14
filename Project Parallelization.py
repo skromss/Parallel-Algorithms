@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
-
 import numpy as np
 import time
 import multiprocessing as mp
@@ -109,9 +106,6 @@ def benchmark(func, graph, iterations=5):
     return np.mean(times)
 
 
-# In[6]:
-
-
 # Parameters
 num_nodes = 500  # Minimum requirement
 connection_probability = 0.5  # Minimum requirement
@@ -125,9 +119,6 @@ serial_time = benchmark(floyd_warshall_serial, graph, num_iterations)
 print(f"Serial execution time: {serial_time:.4f} seconds")
 
 
-# In[7]:
-
-
 # Benchmark parallel execution
 speedups = []
 num_processes_list = [1, 2, 4, 8, 12] 
@@ -139,9 +130,6 @@ for num_processes in num_processes_list:
     print(f"Parallel execution time ({num_processes} processes): {parallel_time:.4f} seconds, Speedup: {speedup:.2f}")
 
 
-# In[8]:
-
-
 # Plot speedup
 plt.plot(num_processes_list, speedups, marker='o')
 plt.xlabel('Number of Processes')
@@ -149,9 +137,6 @@ plt.ylabel('Speedup')
 plt.title('Floyd-Warshall Speedup')
 plt.grid(True)
 plt.show()
-
-
-# In[ ]:
 
 
 
